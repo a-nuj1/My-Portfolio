@@ -1,6 +1,6 @@
 
 
-export const projects = {
+const projects = {
     allProject: [
         {
             image: 'https://res.cloudinary.com/dvdfhripy/image/upload/v1743508008/Screenshot_2025-03-26_201422_ke4fct.png',
@@ -80,3 +80,5 @@ export const projects = {
         },
     ],
 }
+
+export default projects;

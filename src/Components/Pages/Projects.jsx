@@ -1,10 +1,9 @@
 import { motion, useAnimation } from "framer-motion";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
-import { projects } from "../data/data";
+import projects from "../Data/data.js"
 import { useEffect } from "react";
 
 const Projects = () => {
-  // Animation for the floating connectors
   const controls = useAnimation();
 
   useEffect(() => {
@@ -22,9 +21,7 @@ const Projects = () => {
   return (
     <section id="projects" className="relative py-20 bg-gradient-to-b from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
       
-      {/* Unique Background Animation - Floating Tech Circuit */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Circuit Lines */}
         <svg className="absolute inset-0 w-full h-full opacity-10 dark:opacity-5" xmlns="http://www.w3.org/2000/svg">
           <motion.path
             d="M0,100 Q250,50 500,150 T1000,100"
@@ -59,7 +56,6 @@ const Projects = () => {
           />
         </svg>
 
-        {/* Floating Tech Nodes */}
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
@@ -85,7 +81,6 @@ const Projects = () => {
           />
         ))}
 
-        {/* Binary Rain Animation */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(30)].map((_, i) => (
             <motion.div
@@ -112,9 +107,7 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Content */}
       <div className="container mx-auto px-6 sm:px-12 lg:px-24 relative z-10">
-        {/* Centered Heading with Unique Animation */}
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0 }}
@@ -135,7 +128,6 @@ const Projects = () => {
             <span className="relative inline-block">
               <span className="relative z-10">My</span>
               <motion.span 
-                // className="absolute -bottom-1 left-0 w-full h-1 bg-blue-500 dark:bg-purple-500"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ 
@@ -183,7 +175,6 @@ const Projects = () => {
           </motion.p>
         </motion.div>
 
-        {/* Projects Grid with Unique Card Animations */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.allProject.map((project, index) => (
             <motion.div
@@ -203,7 +194,6 @@ const Projects = () => {
                 transition: { type: "spring", stiffness: 300 }
               }}
             >
-              {/* Project Connector Animation */}
               <motion.div
                 className="absolute -inset-2 rounded-xl bg-gradient-to-r from-blue-400/30 to-purple-500/30 pointer-events-none"
                 animate={controls}
@@ -221,8 +211,7 @@ const Projects = () => {
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.2 }}
                     viewport={{ once: true }}
-                    // loading="lazy"
-                    // decoding="async"
+                   
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   
