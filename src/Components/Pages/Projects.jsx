@@ -51,7 +51,7 @@ const Projects = () => {
               duration: 25,
               repeat: Infinity,
               ease: "linear",
-              delay: 5
+              delay: 3
             }}
           />
         </svg>
@@ -121,7 +121,7 @@ const Projects = () => {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ 
               duration: 0.8,
-              delay: 0.2
+              delay: 0.1
             }}
             viewport={{ once: true }}
           >
@@ -132,7 +132,7 @@ const Projects = () => {
                 whileInView={{ scaleX: 1 }}
                 transition={{ 
                   duration: 1,
-                  delay: 0.2
+                  delay: 0.1
                 }}
                 viewport={{ once: true }}
               />
@@ -143,7 +143,7 @@ const Projects = () => {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ 
                 duration: 0.8,
-                delay: 0.2
+                delay: 0.1
               }}
               viewport={{ once: true }}
             >
@@ -154,7 +154,7 @@ const Projects = () => {
                 whileInView={{ scaleX: 1 }}
                 transition={{ 
                   duration: 1,
-                  delay: 0.3
+                  delay: 0.1
                 }}
                 viewport={{ once: true }}
               />
@@ -167,7 +167,7 @@ const Projects = () => {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ 
               duration: 0.8,
-              delay: 0.2
+              delay: 0.1
             }}
             viewport={{ once: true }}
           >
@@ -183,7 +183,7 @@ const Projects = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ 
-                delay: index * 0.1,
+                delay: 0.1,
                 duration: 0.6,
                 type: "spring",
                 stiffness: 100
@@ -225,7 +225,7 @@ const Projects = () => {
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ 
-                      delay: index * 0.1,
+                      delay: 0.2,
                       type: "spring"
                     }}
                     viewport={{ once: true }}
@@ -241,7 +241,7 @@ const Projects = () => {
                     initial={{ x: -10, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ 
-                      delay: 0.2,
+                      delay: 0.1,
                       duration: 0.4
                     }}
                     viewport={{ once: true }}
@@ -257,7 +257,7 @@ const Projects = () => {
                     initial={{ y: 10, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ 
-                      delay: 0.2,
+                      delay: 0.1,
                       duration: 0.4
                     }}
                     viewport={{ once: true }}
@@ -271,7 +271,7 @@ const Projects = () => {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ 
-                      delay: index * 0.1,
+                      delay:  0.2,
                       staggerChildren: 0.1
                     }}
                     viewport={{ once: true }}
@@ -297,7 +297,7 @@ const Projects = () => {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ 
-                      delay: index * 0.1,
+                      delay:  0.2,
                       duration: 0.4
                     }}
                     viewport={{ once: true }}

@@ -1,15 +1,10 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { database } from "../../firebaseConfig.js";
+import { ref, onValue, set, get } from "firebase/database";
 
 const Footer = () => {
-  const [likeCount, setLikeCount] = useState(() => {
-    if (typeof window !== "undefined") {
-      const savedLikes = localStorage.getItem("portfolioLikes");
-      return savedLikes ? parseInt(savedLikes) : 5;
-    }
-    return 0;
-  });
-
+  const [likeCount, setLikeCount] = useState(0);
   const [liked, setLiked] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("portfolioLiked") === "true";
@@ -18,13 +13,39 @@ const Footer = () => {
   });
 
   useEffect(() => {
-    localStorage.setItem("portfolioLikes", likeCount.toString());
-    localStorage.setItem("portfolioLiked", liked.toString());
-  }, [likeCount, liked]);
+    const likesRef = ref(database, "portfolioLikes");
+
+    get(likesRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        setLikeCount(snapshot.val());
+      } else {
+        set(likesRef, 5);
+        setLikeCount(5);
+      }
+    });
+
+    //realtime listener
+    const unsubscribe = onValue(likesRef, (snapshot) => {
+      if (snapshot.exists()) {
+        setLikeCount(snapshot.val());
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("portfolioLiked", liked.toString());
+    }
+  }, [liked]);
 
   const handleLike = () => {
     if (!liked) {
-      setLikeCount((prevCount) => prevCount + 1);
+      const likesRef = ref(database, "portfolioLikes");
+
+      // Update Firebase
+      set(likesRef, likeCount + 1);
       setLiked(true);
 
       setTimeout(() => {

@@ -35,7 +35,6 @@ const Home = () => {
   ];
 
   useEffect(() => {
-
     const animateImage = () => {
       if (imageRef.current) {
         imageRef.current.style.transform = `translateY(${
@@ -97,38 +96,27 @@ const Home = () => {
             Anuj Kumar Gupta
           </h1>
 
-          <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
-            <h2 className="text-2xl md:text-3xl font-semibold text-blue-600 dark:text-purple-400">
+          <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
+            <h2 className="text-2xl md:text-3xl font-semibold text-blue-600 dark:text-purple-400 flex items-center gap-5">
               Full Stack Web Developer
-            </h2>
-
-            <div className="relative h-8 w-8">
               {currentTech && (
-                <motion.div
+                <motion.span
                   key={currentTech.name}
-                  initial={{ opacity: 0, scale: 0.5, x: 20 }}
+                  initial={{ opacity: 0, scale: 0.5, x: 10 }}
                   animate={{
                     opacity: 1,
                     scale: 1.2,
                     x: 0,
-                    boxShadow: "0 0 15px rgba(59, 130, 246, 0.7)",
-                    border: "2px solid rgba(59, 130, 246, 0.5)",
+                    boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
                   }}
-                  exit={{
-                    opacity: 0,
-                    scale: 0.5,
-                    x: -20,
-                    boxShadow: "0 0 0px rgba(0, 0, 0, 0)",
-                    border: "2px solid rgba(0, 0, 0, 0)",
-                  }}
-                  transition={{ duration: 1 }}
-                  className="absolute p-2 rounded-full bg-white/20 dark:bg-gray-800/20 backdrop-blur-sm"
+                  transition={{ duration: 0.8 }}
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-700/30 backdrop-blur-md border border-blue-300 dark:border-purple-500"
                   title={currentTech.name}
                 >
                   {currentTech.icon}
-                </motion.div>
+                </motion.span>
               )}
-            </div>
+            </h2>
           </div>
 
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">

@@ -146,7 +146,7 @@ const Skills = () => {
                           transition: { type: "spring", stiffness: 400 }
                         }}
                         transition={{ 
-                          delay: skillIndex * 0.05 + index * 0.1,
+                          delay: skillIndex * 0.02 +  0.1,
                           type: "spring",
                           stiffness: 300
                         }}
