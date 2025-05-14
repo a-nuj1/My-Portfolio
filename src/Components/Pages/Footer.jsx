@@ -5,6 +5,10 @@ import { ref, onValue, set, get } from "firebase/database";
 
 const Footer = () => {
   const [likeCount, setLikeCount] = useState(0);
+
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+
   const [liked, setLiked] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("portfolioLiked") === "true";
@@ -58,6 +62,27 @@ const Footer = () => {
         }
       }, 200);
     }
+  };
+
+
+    useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   const socialLinks = [
@@ -114,7 +139,52 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 border-t border-gray-800 dark:border-gray-800 py-12">
+<footer className="bg-gray-900 dark:bg-gray-950 border-t border-gray-800 dark:border-gray-800 py-12 relative">
+  {/* Back to Top Button */}
+  <motion.div
+    className={`fixed right-2 bottom-6 z-50 ${showBackToTop ? 'block' : 'hidden'}`}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: showBackToTop ? 1 : 0, y: showBackToTop ? 0 : 20 }}
+    transition={{ duration: 0.3 }}
+  >
+    <motion.button
+      onClick={scrollToTop}
+      className="flex items-center gap-2 px-4 py-3 rounded-full bg-gray-800/80 hover:bg-purple-600/90 backdrop-blur-sm transition-colors duration-300 group shadow-lg"
+      whileHover={{ 
+        scale: 1.05,
+        backgroundColor: "rgba(124, 58, 237, 0.9)"
+      }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <motion.span
+        animate={{
+          y: [0, -2, 0],
+        }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <svg 
+          className="w-5 h-5 text-gray-300 group-hover:text-white" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth={2} 
+            d="M5 10l7-7m0 0l7 7m-7-7v18" 
+          />
+        </svg>
+      </motion.span>
+      <span className="text-sm font-medium text-gray-300 group-hover:text-white hidden sm:inline">
+        Back to Top
+      </span>
+    </motion.button>
+  </motion.div>
       <div className="container mx-auto px-6 sm:px-12 lg:px-24">
         <div className="flex flex-col items-center md:flex-row md:justify-between gap-8">
           <motion.div

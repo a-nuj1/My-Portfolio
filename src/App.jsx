@@ -8,19 +8,22 @@ import Skills from './Components/Pages/Skills.jsx';
 import Projects from './Components/Pages/Projects.jsx';
 import Footer from './Components/Pages/Footer.jsx';
 
+
 function App() {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
-      <Header />
-      <main className="w-full">
-        <Home />
-        <About />
-        <Experience />
-        <Education />
-        <Skills />
-        <Projects />
-      </main>
-      <Footer/>
+    <div className="min-h-screen w-full overflow-x-hidden relative">      
+      <div className="relative z-10">
+        <Header />
+        <main className="w-full">
+          <Home />
+          <About />
+          <Experience />
+          <Education />
+          <Skills />
+          <Projects />
+        </main>
+        <Footer/>
+      </div>
     </div>
   );
 }
