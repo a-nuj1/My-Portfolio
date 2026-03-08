@@ -1,62 +1,70 @@
 import { motion } from "framer-motion";
-import { FaLaptopCode, FaUsers, FaChartLine, FaLightbulb } from "react-icons/fa";
+import { FaLaptopCode, FaChartLine, FaExternalLinkAlt, FaCodeBranch, FaServer } from "react-icons/fa";
 
 const Experience = () => {
+  const experiences = [
+    {
+      title: "SDE-1",
+      company: "Inquisitive Digital",
+      companyLink: "https://www.inquisitivedigital.com/",
+      period: "July 2025 - Present",
+      location: "Noida, UP",
+      icon: <FaCodeBranch />,
+      description: [
+        {
+          text: "End-to-End Product Ownership: Architecting the official Inquisitive Digital web application from scratch, managing UI design, backend logic, and production deployment.",
+          link: "https://www.inquisitivedigital.com/"
+        },
+        {
+          text: "Chauffeur Booking Engine: Developing a premium car rental platform for JK Executive Chauffeurs (London), implementing complex GBP pricing logic and real-time fleet management.",
+          link: "https://lavender-salmon-796541.hostingersite.com/"
+        },
+        {
+          text: "Performance Engineering: Scaled The Mystic Healers platform, improving user journey efficiency by 40% through API caching and optimized asset delivery.",
+          link: "https://www.themystichealers.com/"
+        },
+        {
+          text: "Automation: Established robust CI/CD pipelines via GitHub Actions for automated testing and ensuring 100% cross-device compatibility."
+        }
+      ]
+    },
+    {
+      title: "SDE Intern",
+      company: "Bluestock Fintech",
+      period: "Aug 2024 - Sep 2024",
+      location: "Remote",
+      icon: <FaLaptopCode />,
+      description: [
+        { text: "Developed stock market analytics features using ReactJS, Tailwind CSS, and JavaScript." },
+        { text: "Led a team of 3 interns to implement pixel-perfect UIs from Figma designs." },
+        { text: "Integrated real-time data streams with Python/Django backend systems." }
+      ]
+    }
+  ];
+
   return (
     <section
       id="experience"
-      className="relative py-20 bg-gradient-to-b from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 overflow-hidden"
+      className="relative py-14 bg-gradient-to-b from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-black overflow-hidden"
     >
-      {/* Background Animation Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Floating tech elements */}
+      {/* Background Blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-1/4 left-1/5 w-16 h-16 opacity-10 dark:opacity-5"
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 15, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path 
-              fill="#3B82F6" 
-              d="M50,-50C62.7,-36.1,69.4,-18,68.9,-0.6C68.4,16.8,60.8,33.6,48.1,45.9C35.4,58.2,17.7,66,-1.2,67.2C-20.1,68.4,-40.2,63,-52.9,50.7C-65.6,38.4,-70.9,19.2,-70.3,0.6C-69.7,-18,-63.2,-36,-50.5,-49.9C-37.8,-63.8,-18.9,-73.6,0.5,-74.1C19.9,-74.6,39.8,-65.8,50,-50Z" 
-              transform="translate(100 100) rotate(15)" 
-            />
-          </svg>
-        </motion.div>
-
+          animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.15, 0.1] }}
+          transition={{ duration: 10, repeat: Infinity }}
+          className="absolute -top-20 -right-20 w-96 h-96 bg-blue-400 rounded-full blur-3xl"
+        />
         <motion.div
-          className="absolute bottom-1/3 right-1/4 w-20 h-20 opacity-10 dark:opacity-5"
-          animate={{
-            y: [0, 25, 0],
-            rotate: [0, -10, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-        >
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path 
-              fill="#6366F1" 
-              d="M39.9,-39.9C53.8,-25.9,68.5,-12.9,70.7,2.3C72.9,17.5,62.7,35,48.8,50.8C34.9,66.6,17.5,80.7,-1.3,82C-20,83.3,-40.1,71.8,-54.9,56C-69.7,40.1,-79.3,20.1,-79.1,0.2C-78.9,-19.7,-69,-39.4,-54.2,-53.4C-39.4,-67.4,-19.7,-75.7,-2.3,-73.4C15,-71.1,30,-58.2,39.9,-39.9Z" 
-              transform="translate(100 100)" 
-            />
-          </svg>
-        </motion.div>
+          animate={{ scale: [1, 1.3, 1], opacity: [0.05, 0.1, 0.05] }}
+          transition={{ duration: 12, repeat: Infinity, delay: 2 }}
+          className="absolute bottom-0 -left-20 w-80 h-80 bg-purple-500 rounded-full blur-3xl"
+        />
       </div>
 
-      <div className="container mx-auto px-6 sm:px-12 lg:px-24">
+      <div className="container mx-auto px-6 lg:px-24 relative z-10">
         <div className="flex flex-col md:flex-row gap-16">
-          {/* Left Side - Heading */}
+          
+          {/* Section Header */}
           <motion.div
             className="md:w-1/3"
             initial={{ opacity: 0, x: -50 }}
@@ -64,113 +72,73 @@ const Experience = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <motion.h2 
-              whileHover={{ scale: 1.02 }}
-              className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4"
-            >
-              Work <span className="text-blue-600 dark:text-purple-400">Experience</span>
-            </motion.h2>
-            <div className="h-1 w-20 bg-blue-500 dark:bg-purple-500 mb-5"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              My professional journey through innovative companies and impactful projects.
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              Professional <span className="text-blue-600 dark:text-purple-400">Journey</span>
+            </h2>
+            <div className="h-1.5 w-16 bg-blue-500 rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              From building high-stakes fintech tools to architecting full-scale luxury platforms for international clients.
             </p>
           </motion.div>
 
-          {/* Right Side - Experience Items */}
-          <div className="md:w-2/3 space-y-12">
-            {/* Experience 1 */}
-            <motion.div
-              className="relative pl-8 border-l-2 border-blue-400 dark:border-purple-500"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-blue-500 dark:bg-purple-500"></div>
-              
-              <motion.div 
-                className="flex items-center gap-3 mb-2"
-                whileHover={{ x: 5 }}
+          {/* Timeline */}
+          <div className="md:w-2/3 space-y-8">
+            {experiences.map((exp, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative pl-8 border-l-2 border-dashed border-blue-200 dark:border-gray-700 pb-8"
               >
-                <FaLaptopCode className="text-blue-500 dark:text-purple-400 text-xl" />
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white">SDE Intern</h3>
-              </motion.div>
-              
-              <motion.p 
-                className="text-blue-600 dark:text-purple-400 mb-4 font-medium"
-                whileHover={{ x: 3 }}
-              >
-                Bluestock Fintech • Aug 2024 - Sep 2024 (2 Months)
-              </motion.p>
-              
-              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                {[
-                  "Developed stock market analytics features using ReactJS, Tailwind CSS, and JavaScript",
-                  "Led a team of 3 interns to implement pixel-perfect UIs from Figma designs",
-                  "Integrated real-time data with Python/Django backend systems",
-                  "Conducted daily standups and resolved technical challenges"
-                ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    className="flex items-start gap-2"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <span className="text-blue-500 dark:text-purple-400 mt-1">•</span>
-                    <span>{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+                {/* Timeline Dot */}
+                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white dark:bg-gray-900 border-2 border-blue-500 group-hover:bg-blue-500 transition-colors duration-300" />
+                
+                {/* Content Card */}
+                <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-md p-6 rounded-2xl shadow-sm hover:shadow-xl border border-white/20 dark:border-gray-700 transition-all duration-300">
+                  <div className="flex flex-wrap justify-between items-start mb-4">
+                    <div>
+                      <div className="flex items-center gap-2 text-blue-600 dark:text-purple-400 font-bold text-sm uppercase tracking-wider mb-1">
+                        {exp.icon}
+                        <span>{exp.title}</span>
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                        {exp.companyLink ? (
+                          <a href={exp.companyLink} target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 flex items-center gap-2">
+                            {exp.company} <FaExternalLinkAlt className="text-xs" />
+                          </a>
+                        ) : exp.company}
+                      </h3>
+                    </div>
+                    <span className="text-sm font-medium px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-600 dark:text-gray-300 rounded-full mt-2 md:mt-0">
+                      {exp.period}
+                    </span>
+                  </div>
 
-            {/* Experience 2 */}
-            <motion.div
-              className="relative pl-8 border-l-2 border-blue-400 dark:border-purple-500"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-blue-500 dark:bg-purple-500"></div>
-              
-              <motion.div 
-                className="flex items-center gap-3 mb-2"
-                whileHover={{ x: 5 }}
-              >
-                <FaChartLine className="text-blue-500 dark:text-purple-400 text-xl" />
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white">Frontend Development Intern</h3>
+                  <ul className="space-y-4">
+                    {exp.description.map((item, i) => (
+                      <li key={i} className="text-gray-700 dark:text-gray-300 flex flex-col gap-1">
+                        <div className="flex items-start gap-3">
+                          <span className="text-blue-500 dark:text-purple-400 mt-1.5 text-[8px]">●</span>
+                          <span>{item.text}</span>
+                        </div>
+                        {item.link && (
+                          <a 
+                            href={item.link} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="ml-6 text-xs text-blue-500 dark:text-purple-400 hover:underline flex items-center gap-1 font-semibold"
+                          >
+                            View  <FaExternalLinkAlt className="text-[10px]" />
+                          </a>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </motion.div>
-              
-              <motion.p 
-                className="text-blue-600 dark:text-purple-400 mb-4 font-medium"
-                whileHover={{ x: 3 }}
-              >
-                Edunet Foundation (IBM SkillBuild) • Jun 2022 - Jul 2022 (1 Month)
-              </motion.p>
-              
-              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                {[
-                  "Mastered modern frontend development techniques through intensive training",
-                  "Built and deployed production-grade web applications using React",
-                  "Collaborated with peers on real-world project simulations",
-                  "Gained expertise in responsive design and performance optimization"
-                ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    className="flex items-start gap-2"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <span className="text-blue-500 dark:text-purple-400 mt-1">•</span>
-                    <span>{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+            ))}
           </div>
         </div>
       </div>
