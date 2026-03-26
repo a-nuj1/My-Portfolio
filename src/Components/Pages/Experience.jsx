@@ -17,7 +17,7 @@ const Experience = () => {
         },
         {
           text: "Chauffeur Booking Engine: Developing a premium car rental platform for JK Executive Chauffeurs (London), implementing complex GBP pricing logic and real-time fleet management.",
-          link: "https://lavender-salmon-796541.hostingersite.com/"
+          link: "https://www.jkexecutivechauffeurs.com/"
         },
         {
           text: "Performance Engineering: Scaled The Mystic Healers platform, improving user journey efficiency by 40% through API caching and optimized asset delivery.",
