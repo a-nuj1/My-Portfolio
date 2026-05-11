@@ -8,7 +8,7 @@ import Skills from './Components/Pages/Skills.jsx';
 import Projects from './Components/Pages/Projects.jsx';
 import Footer from './Components/Pages/Footer.jsx';
 
-
+// main function
 function App() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden relative">      
